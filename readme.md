@@ -1,6 +1,7 @@
-You must have Rancher Desktop
-You must have Dapr 1.9.0 installed on your Rancher Desktop Cluster.
-You must have tilt installed
+I am running with 
+- Rancher Desktop 1.6.1
+- Dapr 1.9.0
+- Tilt v0.30.10
 
 RUN: 
 
