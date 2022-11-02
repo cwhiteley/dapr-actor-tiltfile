@@ -1,5 +1,0 @@
-{
-    "namespace": "testarea",
-    "default_registry": "docker.io/allhere",
-    "allow_k8s_contexts": ""
-}
