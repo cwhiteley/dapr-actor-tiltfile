@@ -4,6 +4,7 @@ metadata:
   name: actorpy
   labels:
     app: actorpy
+    app.kubernetes.io/name: actorpy
 spec:
   replicas: 1
   selector:
@@ -19,6 +20,9 @@ spec:
         dapr.io/app-port: "3000"
         dapr.io/log-level: "debug"
         dapr.io/log-as-json: "true"
+        dapr.io/sidecar-liveness-probe-delay-seconds: "5"
+        dapr.io/sidecar-liveness-probe-timeout-seconds: "10"
+
     spec:
       containers:
       - name: app
