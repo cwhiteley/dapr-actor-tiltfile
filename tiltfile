@@ -1,9 +1,9 @@
-#load('ext://nerdctl', 'nerdctl_build')
+load('ext://nerdctl', 'nerdctl_build')
 
 include('./demo_actor/Tiltfile')
 
 k8s_yaml('deployment/actors.yaml')
-k8s_resource('actorpy', port_forwards=3000)
+k8s_resource('actor-service')
 
 
 #k8s_yaml('deployment/actors2.yaml')

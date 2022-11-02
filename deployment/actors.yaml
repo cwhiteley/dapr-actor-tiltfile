@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: actorpy
+  name: actor-service
   labels:
-    app: actorpy
-    app.kubernetes.io/name: actorpy
+    app: actor-service
+    app.kubernetes.io/name: actor-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: actorpy
+      app: actor-service
   template:
     metadata:
       labels:
-        app: actorpy
+        app: actor-service
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "actorpy"
+        dapr.io/app-id: "actor-service"
         dapr.io/app-port: "3000"
         dapr.io/log-level: "debug"
         dapr.io/log-as-json: "true"
@@ -26,6 +26,8 @@ spec:
     spec:
       containers:
       - name: app
-        image: tilt-demo-actor-py
+        image: actor-service  # EDIT HERE: Replace the image nmae with [docker registry]/demo_actor:latest
+        command: ["uvicorn"]
+        args: ["--port", "3000", "--reload-dir", "/app", "demo_actor_service:app"]
         ports:
         - containerPort: 3000
