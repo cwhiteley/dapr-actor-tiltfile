@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actorpy
+  labels:
+    app: actorpy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actorpy
+  template:
+    metadata:
+      labels:
+        app: actorpy
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "actorpy"
+        dapr.io/app-port: "3000"
+        dapr.io/log-level: "debug"
+        dapr.io/log-as-json: "true"
+    spec:
+      containers:
+      - name: app
+        image: tilt-demo-actor-py
+        ports:
+        - containerPort: 3000

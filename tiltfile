@@ -1,0 +1,10 @@
+#load('ext://nerdctl', 'nerdctl_build')
+
+include('./demo_actor/Tiltfile')
+
+k8s_yaml('deployment/actors.yaml')
+k8s_resource('actorpy', port_forwards=3000)
+
+
+#k8s_yaml('deployment/actors2.yaml')
+#k8s_resource('app-py-2', port_forwards=8000)

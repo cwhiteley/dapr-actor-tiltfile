@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-py-2
+  labels:
+    app: app-py-2
+spec:
+  selector:
+    matchLabels:
+      app: app-py-2
+  template:
+    metadata:
+      labels:
+        app: app-py-2
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "actor-app-2"
+        dapr.io/app-port: "8200"
+    spec:
+      containers:
+      - name: app
+        image: tilt-demo-actor-py2
+        ports:
+        - containerPort: 8200

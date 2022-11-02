@@ -1,0 +1,14 @@
+load('ext://nerdctl', 'nerdctl_build')
+
+nerdctl_build(
+    ref='tilt-demo-actor-py',
+    context='.',
+    dockerfile='Dockerfile'
+)
+
+
+#nerdctl_build(
+#    ref='tilt-demo-actor-py2',
+#    context='.',
+#    dockerfile='Dockerfile2'
+#)
